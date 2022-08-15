@@ -23,7 +23,8 @@ heroku -v || npm install -g heroku
 
 ## Iniciamos el proceso de subida a heroku
 echo "Iniciamos sesion en heroku"
-heroku login
+$(heroku apps)
+## heroku login
 echo "Iniciamos sesion en container:login"
 heroku container:login
 
