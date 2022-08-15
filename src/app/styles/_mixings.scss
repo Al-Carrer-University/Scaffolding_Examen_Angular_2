@@ -1,0 +1,150 @@
+// #region Responsive
+@mixin mobile {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mobile-large {
+  @media only screen and (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media only screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+// #endregion
+
+// #region Transforms
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// #endregion
+
+// #region Utilities
+@mixin font($font: false, $size: false, $color: false, $weight: false, $lh: false) {
+  @if $font {
+    font-family: $font;
+  }
+
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $color {
+    color: $color;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: calc((100% - $truncation-boundary) / 2)
+}
+
+@mixin flex($direction:row, $vertical:middle, $horizontal:center) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+  vertical-align: $vertical;
+  justify-content: $horizontal;
+  align-self: $horizontal;
+  text-align: $horizontal;
+}
+
+@mixin absolute($horizontal, $vertical) {
+  position: absolute;
+
+  @if $horizontal < 50% {
+    left: $horizontal;
+  }
+
+  @else {
+    right: calc(100% - $horizontal);
+  }
+
+  @if $vertical < 50% {
+    top: $vertical;
+  }
+
+  @else {
+    bottom: calc(100% - $vertical);
+  }
+}
+
+@mixin fixed($horizontal, $vertical) {
+  position: fixed;
+
+  @if $horizontal < 50% {
+    left: $horizontal;
+  }
+
+  @else {
+    right: calc(100% - $horizontal);
+  }
+
+  @if $vertical < 50% {
+    top: $vertical;
+  }
+
+  @else {
+    bottom: calc(100% - $vertical);
+  }
+}
+
+// #endregion

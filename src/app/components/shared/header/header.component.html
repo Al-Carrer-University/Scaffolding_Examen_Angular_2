@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ 'title' | translate }}</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      [matMenuTriggerFor]="lenguajeMenu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- Menu de idiomas -->
+    <mat-menu #lenguajeMenu="matMenu">
+      <button mat-menu-item (click)="changeLenguaje('en')">
+        <img
+          loading="lazy"
+          src="https://hatscripts.github.io/circle-flags/flags/uk.svg"
+          width="15"
+        />
+        EN
+      </button>
+      <button mat-menu-item (click)="changeLenguaje('es')">
+        <img
+          loading="lazy"
+          src="https://hatscripts.github.io/circle-flags/flags/es.svg"
+          width="15"
+        />
+        ES
+      </button>
+    </mat-menu>
+  </mat-toolbar-row></mat-toolbar
+>
