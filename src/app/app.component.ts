@@ -15,6 +15,8 @@ export class AppComponent {
     let testParams: Partial<IParamHolder> = {};
     testParams.category = ECategory.Characters;
     testParams.limit = 100;
-    marvel.getSingle(testParams);
+    marvel.getSingle(testParams).subscribe((data) => {
+      console.warn(data.data.results);
+    });
   }
 }

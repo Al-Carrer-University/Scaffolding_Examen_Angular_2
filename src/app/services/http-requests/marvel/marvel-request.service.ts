@@ -1,4 +1,4 @@
-import { environment } from './../../../../environments/environment.prod';
+import { environment } from './../../../../environments/environment';
 import { IParamHolder } from './models/interfaces/IParamHolder';
 import { IDataWrapper } from './models/interfaces/IDataWrapper';
 import { Injectable } from '@angular/core';
