@@ -1,7 +1,6 @@
-import { IParamHolder } from './services/http-requests/marvel/models/interfaces/IParamHolder';
-import { MarvelRequestService } from './services/http-requests/marvel/marvel-request.service';
+import { ICharacter } from './services/http-request-2/animal-crossing/models/ICharacter';
+import { AnimalCrossingService } from './services/http-request-2/animal-crossing/animal-crossing.service';
 import { Component } from '@angular/core';
-import { ECategory } from './services/http-requests/marvel/models/enums/ECategory';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +10,9 @@ import { ECategory } from './services/http-requests/marvel/models/enums/ECategor
 export class AppComponent {
   title = 'Scaffolding-Examen-Angular-2';
 
-  constructor(private marvel: MarvelRequestService) {
-    let testParams: Partial<IParamHolder> = {};
-    testParams.category = ECategory.Characters;
-    testParams.limit = 100;
-    marvel.getSingle(testParams).subscribe((data) => {
-      console.warn(data.data.results);
+  constructor(private animal: AnimalCrossingService) {
+    this.animal.getVillagers().subscribe((villagers: ICharacter[]) => {
+      console.warn(villagers);
     });
   }
 }

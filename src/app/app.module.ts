@@ -15,13 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { TraduccionesModule } from './modules/traducciones/traducciones.module';
 import { LazyLoadingDirective } from './directives/lazy-loading.directive';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LazyLoadingDirective
+    LazyLoadingDirective,
+    ListComponent
   ],
   imports: [
     BrowserModule,
