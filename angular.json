@@ -19,7 +19,7 @@
           "options": {
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src/app/styles/"
               ]
             },
             "outputPath": "dist/scaffolding-examen-angular-2",

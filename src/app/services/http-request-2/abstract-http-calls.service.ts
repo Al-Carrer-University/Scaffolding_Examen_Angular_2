@@ -13,8 +13,8 @@ export abstract class AbstractHttpCallsService<T> {
     return this.http.get<T[]>(`${this.apiUrl}`);
   }
 
-  getSingle(): Observable<T> {
-    return this.http.get<T>(`${this.apiUrl}`);
+  getSingle(id: number | string): Observable<T> {
+    return this.http.get<T>(`${this.apiUrl}/${id}`);
   }
 
   postData(body: T): Observable<any> {

@@ -1,23 +1,23 @@
 import { Observable } from 'rxjs';
-import { AnimalCrossingService } from './../../services/http-request-2/animal-crossing/animal-crossing.service';
+import { VillagerService } from './../../services/http-request-2/animal-crossing/animal-crossing.service';
 import { Component, OnInit } from '@angular/core';
-import { ICharacter } from 'src/app/services/http-request-2/animal-crossing/models/ICharacter';
+import { ICharacter } from 'src/app/services/http-request-2/animal-crossing/models/IAnimalCrossing';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class VillagerListComponent implements OnInit {
   villagers!: Observable<ICharacter[]>;
   offset = 0;
-  limit = 15;
+  limit = 18;
   total = 391;
 
-  constructor(private animalCrossing: AnimalCrossingService) {}
+  constructor(private villagersApi: VillagerService) {}
 
   ngOnInit(): void {
-    this.villagers = this.animalCrossing.getVillagers();
+    this.villagers = this.villagersApi.getList();
   }
 
   pageUp(): void {

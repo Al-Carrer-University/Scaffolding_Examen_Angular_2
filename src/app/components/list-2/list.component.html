@@ -1,0 +1,21 @@
+<h1 class="title">{{'bugs' | translate | uppercase}}</h1>
+<div class="container">
+  <button (click)="pageDown()">page down</button>
+  <button (click)="pageUp()">page up</button>
+</div>
+<div class="container">
+  <div  *ngFor="let bug of bugs | async; let i = index">
+    <mat-card class="example-card" *ngIf="i > offset && i <= limit + offset">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image" [style.background-image]="'url('+bug.icon_uri+')'"></div>
+        <mat-card-title>{{bug.name['name-EUes']}}</mat-card-title>
+        <mat-card-subtitle>{{bug.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="bug.image_uri" [alt]="'Image of '+ bug.name['name-EUes']">
+      <mat-card-content>
+        <p> Precio: {{bug.price}} BAYAS </p>
+        <p> {{bug.availability.time}} </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

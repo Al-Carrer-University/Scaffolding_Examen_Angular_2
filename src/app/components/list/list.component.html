@@ -1,17 +1,21 @@
-<button (click)="pageDown()">page down</button>
-<button (click)="pageUp()">page up</button>
-
-<div *ngFor="let villager of villagers | async; let i = index">
-  <mat-card class="example-card" *ngIf="i > offset && i < limit + offset">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image" [style.background-image]="'url('+villager.icon_uri+')'"></div>
-      <mat-card-title>{{villager.name['name-EUes']}}</mat-card-title>
-      <mat-card-subtitle>{{villager.id}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="villager.image_uri" [alt]="'Image of '+ villager.name['name-EUes']">
-    <mat-card-content>
-      <p> {{villager.gender}} </p>
-      <p> {{villager.birthday}} </p>
-    </mat-card-content>
-  </mat-card>
+<h1 class="title">{{'villagers' | translate | uppercase}}</h1>
+<div class="container">
+  <button (click)="pageDown()">page down</button>
+  <button (click)="pageUp()">page up</button>
+</div>
+<div class="container">
+  <div  *ngFor="let villager of villagers | async; let i = index">
+    <mat-card class="example-card" *ngIf="i > offset && i <= limit + offset">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image" [style.background-image]="'url('+villager.icon_uri+')'"></div>
+        <mat-card-title>{{villager.name['name-EUes']}}</mat-card-title>
+        <mat-card-subtitle>{{villager.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="villager.image_uri" [alt]="'Image of '+ villager.name['name-EUes']">
+      <mat-card-content>
+        <p> {{villager.gender}} </p>
+        <p> {{villager.birthday}} </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
